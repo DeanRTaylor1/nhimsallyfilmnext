@@ -22,7 +22,7 @@ const Home: React.FC<IndexProps> = ({
             </Link>
             <Link href="/booking">
               <div className="text-xl h-fit p-2 rounded-sm text-zinc-900 font-extralight hover:cursor-pointer hover:bg-slate-50">
-                Make A Booking
+                Make A Booking!
               </div>
             </Link>
           </div>
