@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import MainSwiper from "../Components/Swipers/swiperHome/swiper";
 import SwiperLarge from "../Components/Swipers/SwiperLandscape/Swiper2";
 import Link from "next/link";
-import { image, IndexProps } from "../types/interfaces";
+import { IndexProps } from "../types/interfaces";
 import { getHomeImages, getHomeLandScapeImages } from "../helpers/imageHelpers";
 
 const Home: React.FC<IndexProps> = ({
