@@ -18,7 +18,6 @@ const IndividualGallery: React.FC<GalleryProps> = () => {
 
   const getGalleryImages = async (albumName: string) => {
     try {
-      console.log(albumName);
       const images = collection(db, albumName);
       const imageQuery = query(images, limit(9));
       const imagesSnap = await getDocs(imageQuery);

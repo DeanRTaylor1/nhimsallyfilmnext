@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import Spinner from "../../spinner/spinner";
 
 import Image from "next/image";
@@ -12,12 +12,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { image } from "../../../types/interfaces";
 import { LandscapeImageSwiperProps } from "../../../types/interfaces";
 
 const SwiperLarge: React.FC<LandscapeImageSwiperProps> = ({
   homeLandScapeImageArr,
 }) => {
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+
+  useEffect(() => {
+    setImageLoaded(true);
+  }, []);
+
   return (
     <>
       <Swiper
@@ -29,7 +34,20 @@ const SwiperLarge: React.FC<LandscapeImageSwiperProps> = ({
         navigation
         className="mySwiper"
       >
-        {homeLandScapeImageArr &&
+        {!imageLoaded && (
+          <Fragment>
+            <SwiperSlide>
+              <Spinner />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Spinner />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Spinner />
+            </SwiperSlide>
+          </Fragment>
+        )}
+        {imageLoaded &&
           homeLandScapeImageArr.map((item: any) => {
             return (
               <SwiperSlide key={item.id} className="group">
