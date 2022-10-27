@@ -18,10 +18,7 @@ const Navbar: React.FC = () => {
         >
           <GiHamburgerMenu className="hamburger" />
         </IconContext.Provider>
-        <div
-          className="navbarDropdownList  fixed w-screen h-screen top-0 left-0 p-2 bg-white flex text-center items-start justify-center
-    transition-all duration-300 scale-0 origin-top-right group-hover:scale-100 z-10;"
-        >
+        <div className="navbarDropdownList">
           <ul className="flex flex-col gap-4 pt-12">
             <Link href="/gallery">
               <li className="navbarDropdownListItem">Galleries</li>

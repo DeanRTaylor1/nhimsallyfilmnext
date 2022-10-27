@@ -33,6 +33,13 @@
     @apply rounded-md 
     text-4xl underline underline-offset-8 tracking-wider hover:cursor-pointer hover:bg-slate-50 text-zinc-900;
   }
+  .signUpFormTextInput {
+    @apply rounded w-full border-slate-200 border-b border-t border-l border-r p-2 h-12 flex justify-start items-center placeholder:text-sm placeholder:text-zinc-700 active:text-zinc-900 
+    focus:text-zinc-900 active:border-black focus:outline-none hover:cursor-text active:cursor-text focus:ring-white focus:shadow-2xl active:shadow-2xl bg-slate-50 font-extralight placeholder:font-extralight transition-all ease-in-out duration-700;
+  }
+  .submitButton {
+    @apply w-full h-12 bg-zinc-200 rounded-md hover:cursor-pointer hover:bg-zinc-300;
+  }
 }
 
 .swiper {

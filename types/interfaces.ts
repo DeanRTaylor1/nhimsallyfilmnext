@@ -30,3 +30,13 @@ export interface BookingPageProps {
   coupleSwiper: string;
   weddingSwiper: string;
 }
+
+export type Data = {
+  message?: string;
+  userId?: string;
+};
+
+export class StatusError extends Error {
+  statusCode: number | undefined;
+  data?: any[];
+}
