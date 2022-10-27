@@ -4,6 +4,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .example {
+    @apply rounded w-full h-8 placeholder:text-sm placeholder:text-zinc-700 active:text-zinc-900 
+    focus:text-zinc-900  focus:border-white  focus:ring-white active:border-white bg-zinc-200 font-extralight placeholder:font-extralight;
+  }
+  .hamburger {
+    @apply text-2xl hover:cursor-pointer hover:rotate-90 transition-all ease-in-out duration-500
+    
+    md:hidden;
+  }
+  .navbarDropdownList {
+    @apply fixed w-screen h-screen top-0 left-0 p-2 bg-white flex text-center items-start justify-center
+    transition-all duration-300 scale-0 origin-top-right group-hover:scale-100 z-10;
+  }
+  .navbarDropdownListItem {
+    @apply text-lg hover:cursor-pointer hover:bg-slate-50;
+  }
+  .navbarStandardListItem {
+    @apply text-lg hover:cursor-pointer hover:bg-slate-50;
+  }
+
+  .smIcons {
+    @apply rounded-md h-image  
+    text-xl hover:cursor-pointer hover:opacity-70 text-zinc-900;
+  }
+  .contactlinks {
+    @apply rounded-md 
+    text-4xl underline underline-offset-8 tracking-wider hover:cursor-pointer hover:bg-slate-50 text-zinc-900;
+  }
+}
+
 .swiper {
   width: 100%;
   height: 75%;
@@ -44,35 +75,4 @@
 .swiper-button-prev,
 .swiper-button-next {
   color: rgb(250 250 250) !important;
-}
-
-@layer components {
-  .example {
-    @apply rounded w-full h-8 placeholder:text-sm placeholder:text-zinc-700 active:text-zinc-900 
-    focus:text-zinc-900  focus:border-white  focus:ring-white active:border-white bg-zinc-200 font-extralight placeholder:font-extralight;
-  }
-  .hamburger {
-    @apply text-2xl hover:cursor-pointer hover:rotate-90 transition-all ease-in-out duration-500
-    
-    md:hidden;
-  }
-  .navbarDropdownList {
-    @apply fixed w-screen h-screen top-0 left-0 p-2 bg-white flex text-center items-start justify-center
-    transition-all duration-300 scale-0 origin-top-right group-hover:scale-100 z-10;
-  }
-  .navbarDropdownListItem {
-    @apply text-lg hover:cursor-pointer hover:bg-slate-50;
-  }
-  .navbarStandardListItem {
-    @apply text-lg hover:cursor-pointer hover:bg-slate-50;
-  }
-
-  .smIcons {
-    @apply rounded-md h-image  
-    text-xl hover:cursor-pointer hover:opacity-70 text-zinc-900;
-  }
-  .contactlinks {
-    @apply rounded-md 
-    text-4xl underline underline-offset-8 tracking-wider hover:cursor-pointer hover:bg-slate-50 text-zinc-900;
-  }
 }
