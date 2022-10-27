@@ -20,13 +20,17 @@ module.exports = {
         // Complex site-specific row configuration
         layout: "4rem 1fr 3rem",
       },
+      gridTemplateColumns: {
+        // Complex site-specific col configuration
+        dashboard: "14rem 1fr",
+      },
       height: {
-        // Complex site-specific row configuration
+        // Complex site-specific configuration
         image: "416px",
         imagelg: "521px",
       },
       minWidth: {
-        // Complex site-specific row configuration
+        // Complex site-specific configuration
         image: "416px",
         imagelg: "288px",
       },

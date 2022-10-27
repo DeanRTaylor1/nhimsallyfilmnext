@@ -1,13 +1,15 @@
 import { Fragment, PropsWithChildren } from "react";
+import DashBoardNav from "./DashBoardNav";
 
-const AdminLayout: React.FC<PropsWithChildren> = (props) => {
+const AdminDashboardLayout: React.FC<PropsWithChildren> = (props) => {
   return (
     <Fragment>
-      <div className="grid overflow-hidden h-screen w-screen grid-cols-1 grid-rows-layout md:justify-items-center">
+      <div className="grid h-screen w-screen grid-cols-dashboard grid-rows-1 md:justify-items-center">
+        <DashBoardNav />
         {props.children}
       </div>
     </Fragment>
   );
 };
 
-export default AdminLayout;
+export default AdminDashboardLayout;

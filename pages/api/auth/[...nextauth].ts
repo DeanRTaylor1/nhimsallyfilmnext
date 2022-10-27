@@ -3,6 +3,7 @@ import User from "../../../models/User";
 import CredentialsProvider from "next-auth/providers/credentials";
 import connectMongo from "../../../mongoose/connectMongo";
 import { StatusError } from "../../../types/interfaces";
+import mongoose from "mongoose";
 import { verifyPassword } from "../../../helpers/auth";
 
 interface Credentials {
@@ -45,6 +46,7 @@ export default NextAuth({
         if (!isValid) {
           throw new Error("Could not log you in!");
         }
+
         return {
           email: user.email,
         };
@@ -53,6 +55,6 @@ export default NextAuth({
   ],
   secret: process.env.SECRET_KEY,
   pages: {
-    signIn: "/admin/login",
+    signIn: "/admin",
   },
 });
