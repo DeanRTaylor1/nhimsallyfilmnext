@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getGalleryImages } from "../../helpers/imageHelpers";
 import { GalleryProps } from "../../types/interfaces";
 import { useRouter } from "next/router";
 import { collection, getDocs, query, limit } from "firebase/firestore";
