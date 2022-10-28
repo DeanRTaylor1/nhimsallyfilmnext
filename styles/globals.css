@@ -40,6 +40,12 @@
   .submitButton {
     @apply w-full h-12 bg-zinc-200 rounded-md hover:cursor-pointer hover:bg-zinc-300;
   }
+  .dashboardNavItem {
+    @apply text-lg uppercase py-3 font-bold block hover:cursor-pointer;
+  }
+  .dashboardNavListItem {
+    @apply px-2 items-center flex gap-2 hover:opacity-75;
+  }
 }
 
 .swiper {
