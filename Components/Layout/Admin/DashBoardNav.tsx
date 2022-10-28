@@ -33,7 +33,7 @@ const DashBoardNav: React.FC = () => {
                 >
                   <AiOutlineLineChart />
                 </IconContext.Provider>
-                <Link className="dashboardNavItem" href="/admin/dashboard/test">
+                <Link className="dashboardNavItem" href="/admin/dashboard">
                   Insights
                 </Link>
               </li>
@@ -49,7 +49,7 @@ const DashBoardNav: React.FC = () => {
                 </IconContext.Provider>
                 <Link
                   className="dashboardNavItem "
-                  href="/admin/dashboard/test"
+                  href="/admin/dashboard/albums"
                 >
                   Albums
                 </Link>

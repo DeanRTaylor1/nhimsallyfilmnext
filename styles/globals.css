@@ -46,6 +46,9 @@
   .dashboardNavListItem {
     @apply px-2 items-center flex gap-2 hover:opacity-75;
   }
+  .dashboardImageContainer {
+    @apply w-full h-fit p-4 border-2 rounded-md flex gap-4 hover:cursor-pointer hover:bg-zinc-50;
+  }
 }
 
 .swiper {
