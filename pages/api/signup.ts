@@ -44,11 +44,11 @@ export default async function handler(
       });
     }
   } else {
-    // console.log("CONNECTING TO MONGO");
-    // await connectMongo();
-    // console.log("CONNECTED TO MONGO");
-    // const user = await User.findOne({ email: "deanrtaylor@hotmail.com" });
-    // console.log(user, user.password);
+    console.log("CONNECTING TO MONGO");
+    await connectMongo();
+    console.log("CONNECTED TO MONGO");
+    const user = await User.findOne({ email: "deanrtaylor@hotmail.com" });
+    console.log(user, user.password);
     res.status(200).json({ message: "success!" });
   }
 }
