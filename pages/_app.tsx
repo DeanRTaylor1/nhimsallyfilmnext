@@ -32,6 +32,14 @@ export default function App({
           <title>NhimSallyFilm</title>
           <meta name="description" content="Film By @NhimSally.Film" />
           <link rel="icon" href="/favicon.ico" />
+          <meta property="og:title" content="NhimSally.Film" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://www.nhimsallyfilm.com" />
+          <meta property="og:image" content="/socialshare.jpg" />
+          <meta
+            property="og:description"
+            content="Nhim Sally: Vietnamese Photographer, gallery and portfolio"
+          />
         </Head>
         <Component {...pageProps} />
       </Layout>
