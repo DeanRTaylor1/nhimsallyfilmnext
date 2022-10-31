@@ -56,16 +56,16 @@ const IndividualGallery: React.FC<GalleryProps> = () => {
           images.map((item) => {
             return (
               // add use dispatch on click for each image to update the galleryview
-              <Link key={item.id} href={"/gallery/" + item.imagename}>
-                <Image
-                  className="hover:cursor-pointer"
-                  data-imagename={item.imagename}
-                  alt="galleryimage"
-                  src={item.imageurl}
-                  width={800}
-                  height={350}
-                />
-              </Link>
+
+              <Image
+                key={item.id}
+                className="hover:cursor-pointer"
+                data-imagename={item.imagename}
+                alt="galleryimage"
+                src={item.imageurl}
+                width={800}
+                height={350}
+              />
             );
           })}
       </div>
