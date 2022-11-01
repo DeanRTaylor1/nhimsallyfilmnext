@@ -1,10 +1,11 @@
 import React from "react";
 import { Fragment } from "react";
 import Image from "next/image";
+import Image1 from "../../models/Image";
 import Link from "next/link";
 import { getGalleryImages } from "../../helpers/imageHelpers";
 import { GalleryProps } from "../../types/interfaces";
-import axios from "axios";
+import connectMongo from "../../mongoose/connectMongo";
 
 const Galleries: React.FC<GalleryProps> = ({ galleryImages }) => {
   return (
@@ -31,13 +32,13 @@ const Galleries: React.FC<GalleryProps> = ({ galleryImages }) => {
 };
 
 const getStaticProps = async () => {
-  const data = await axios.get(process.env.BASE_URL + "/api/image", {
-    headers: { isgallery: true },
-  });
+  console.log("CONNECTING TO MONGO");
+  await connectMongo();
+  console.log("CONNECTED TO MONGO");
+  const res = await Image1.find({ isAlbumCover: true });
 
-  const images = data.data.images!;
-  console.log(images);
-  const galleryImages = data.data.images!;
+  const galleryImages = JSON.parse(JSON.stringify(res));
+
   return {
     props: {
       galleryImages,
