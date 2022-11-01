@@ -14,6 +14,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
   deleteObject,
+  listAll,
 } from "firebase/storage";
 
 const getHomeImages = async () => {
@@ -123,7 +124,7 @@ const createImageURLMap = (
 ) => {
   const imageObjects = array.map((item, i) => {
     return {
-      imageName: `${albumName}_${i}`,
+      imageName: `${albumName}_${i + 1}`,
       imageUri: item,
       albumName,
       isAlbumCover: isAlbumCover ? true : false,
@@ -144,6 +145,14 @@ const deleteImage = async (albumName: string, imageName: string) => {
   }
 };
 
+const listAllFiles = async (albumName: string): Promise<any> => {
+  const filePath = `images/${albumName}`;
+  const listImagesRef = ref(getStorage(), filePath);
+  const files = await listAll(listImagesRef);
+  console.log(files);
+  return files.items;
+};
+
 export {
   getPackageImages,
   getHomeImages,
@@ -151,4 +160,6 @@ export {
   getGalleryImages,
   uploadImage,
   createImageURLMap,
+  deleteImage,
+  listAllFiles,
 };

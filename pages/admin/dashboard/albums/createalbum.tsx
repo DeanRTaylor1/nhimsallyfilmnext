@@ -140,7 +140,7 @@ const CreateAlbum: React.FC = () => {
               <Spinner />
             </div>
           )}
-          {albumImageUploaded && (
+          {albumImageUploaded && albumImageUploaded !== "pending" && (
             <div className="flex flex-col gap-2">
               <h1 className="text-2xl font-bold">Album Cover:</h1>
               <div className="flex justify-center items-center gap-4">
@@ -185,7 +185,7 @@ const CreateAlbum: React.FC = () => {
                   <Spinner />
                 </div>
               )}
-              {fullAlbumUploaded && (
+              {fullAlbumUploaded === true && (
                 <div className="flex flex-col gap-2">
                   <h1 className="text-2xl font-bold">Album:</h1>
 

@@ -59,6 +59,22 @@ export default async function handler(
       res.status(401).json({ message: "Not Authenticated!" });
       return;
     }
+    console.log(req.headers.albumname);
+    const albumName = req.headers.albumname;
+    console.log("CONNECTING TO MONGO");
+    await connectMongo();
+    console.log("CONNECTED TO MONGO");
+    try {
+      const result = await Image.deleteMany({ albumName: albumName });
+
+      res.status(200).json({ message: "Album Deleted Successfully" });
+      return;
+    } catch (err: any) {
+      console.log(err);
+      res.status(500).json({
+        message: err.message,
+      });
+    }
   }
   if (req.method === "GET") {
     if (req.headers.isgallery) {
@@ -66,12 +82,6 @@ export default async function handler(
         console.log("CONNECTING TO MONGO");
         await connectMongo();
         console.log("CONNECTED TO MONGO");
-        // const existingImage = await Image.find({ imageName: imageName });
-        // if (existingImage) {
-        //   const error = new StatusError("Image Reference already exists.");
-        //   error.statusCode = 409;
-        //   throw error;
-        // }
 
         const images = await Image.find({ isAlbumCover: true });
         // console.log(images);
@@ -90,7 +100,7 @@ export default async function handler(
         await connectMongo();
         console.log("CONNECTED TO MONGO");
         const albumName = req.headers.albumname;
-        const images = await Image.find({ albumName: albumName });
+        const images = await Image.find({ albumName: albumName }).limit(9);
         // console.log(images);
 
         res.status(200).json({ message: "Images retreived", images: images });
