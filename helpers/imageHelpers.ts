@@ -8,6 +8,13 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 
 const getHomeImages = async () => {
   let newArr: image[] = [];
@@ -101,9 +108,47 @@ const getPackageImages = async (packageName: string) => {
   }
 };
 
+const uploadImage = async (albumname: string, file: File) => {
+  const filePath = `images/${albumname}/${file.name}`;
+  const newImageRef = ref(getStorage(), filePath);
+  const fileSnapshot = await uploadBytesResumable(newImageRef, file);
+  const publicImageUrl = await getDownloadURL(newImageRef);
+  return publicImageUrl;
+};
+
+const createImageURLMap = (
+  albumName: string,
+  array: any[],
+  isAlbumCover: Boolean
+) => {
+  const imageObjects = array.map((item, i) => {
+    return {
+      imageName: `${albumName}_${i}`,
+      imageUri: item,
+      albumName,
+      isAlbumCover: isAlbumCover ? true : false,
+    };
+  });
+  return imageObjects;
+};
+
+const deleteImage = async (albumName: string, imageName: string) => {
+  const filePath = `images/${albumName}/${imageName}`;
+  const delImageRef = ref(getStorage(), filePath);
+  try {
+    const result = await deleteObject(delImageRef);
+    console.log(result);
+    return;
+  } catch (err) {
+    return err;
+  }
+};
+
 export {
   getPackageImages,
   getHomeImages,
   getHomeLandScapeImages,
   getGalleryImages,
+  uploadImage,
+  createImageURLMap,
 };

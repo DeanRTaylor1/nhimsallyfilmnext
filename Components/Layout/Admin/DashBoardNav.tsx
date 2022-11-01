@@ -17,7 +17,7 @@ const DashBoardNav: React.FC = () => {
     <Fragment>
       <div className=" hidden w-56 h-full  shadow-xl bg-white md:flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
-          <div className="md:block text-left md:pb-2  mr-0 inline-block whitespace-nowrap text-2xl uppercase font-bold p-4 px-0">
+          <div className="md:block text-left md:pb-2  md:px-2 mr-0 inline-block whitespace-nowrap text-2xl uppercase font-bold p-4 px-0">
             NhimSallyFilm
           </div>
           <div className="  md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-2 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-start flex-1 rounded hidden">

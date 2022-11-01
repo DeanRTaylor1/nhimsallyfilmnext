@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
       </Link>
 
       {/* Mobile Nav */}
-      <div onClick={navBarHandler} className="group ">
+      <div onClick={navBarHandler} className="group">
         <IconContext.Provider
           value={{
             color: "rgb(24 24 27)",

@@ -34,9 +34,18 @@ export interface BookingPageProps {
 export type Data = {
   message?: string;
   userId?: string;
+  imageId?: String;
+  images?: any[];
 };
 
 export class StatusError extends Error {
   statusCode: number | undefined;
   data?: any[];
+}
+
+export interface ImageSchema {
+  albumName: string;
+  imageUri: string;
+  imageName: string;
+  isAlbumCover: Boolean;
 }

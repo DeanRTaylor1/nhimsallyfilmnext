@@ -49,6 +49,10 @@
   .dashboardImageContainer {
     @apply w-full h-fit p-4 border-2 rounded-md flex gap-4 hover:cursor-pointer hover:bg-zinc-50;
   }
+  .statusCreator {
+    @apply rounded w-full border-slate-200 border-b border-t border-l border-r p-2 h-12 flex justify-start items-center placeholder:text-sm placeholder:text-zinc-700 active:text-zinc-900 
+    focus:text-zinc-900 active:border-black focus:outline-none hover:cursor-text active:cursor-text focus:ring-white focus:shadow-2xl active:shadow-2xl bg-slate-50 font-extralight placeholder:font-extralight transition-all ease-in-out duration-700;
+  }
 }
 
 .swiper {
