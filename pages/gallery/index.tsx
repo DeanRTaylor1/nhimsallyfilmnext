@@ -18,7 +18,7 @@ const Galleries: React.FC<GalleryProps> = ({ galleryImages }) => {
                 className="hover:cursor-pointer"
                 data-imagename={item.albumName}
                 alt="galleryimage"
-                src={item.imageUri}
+                src={item.imageUri!}
                 width={800}
                 height={350}
               />

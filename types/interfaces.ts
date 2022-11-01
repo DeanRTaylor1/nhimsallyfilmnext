@@ -5,11 +5,13 @@ export interface IndexProps {
 
 export interface image {
   id?: string;
-  _id: string;
-  albumName: string;
-  imageUri: string;
-  imageName: string;
-  isAlbumCover: boolean;
+  _id?: string;
+  albumName?: string;
+  imageurl?: string;
+  imagename?: string;
+  imageUri?: string;
+  imageName?: string;
+  isAlbumCover?: boolean;
 }
 
 export interface MainImageSwiperProps {

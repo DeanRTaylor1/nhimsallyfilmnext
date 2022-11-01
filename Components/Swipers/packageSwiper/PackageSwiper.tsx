@@ -47,7 +47,7 @@ const PackageSwiper: React.FC<PackageSwiperProps> = ({ images }) => {
               <Image
                 className="group-hover:opacity-70 hover:cursor-pointer "
                 alt="galleryimage"
-                src={item.imageurl}
+                src={item.imageurl!}
                 width={800}
                 height={1400}
               />
