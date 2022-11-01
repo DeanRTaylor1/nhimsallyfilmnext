@@ -19,7 +19,7 @@ const Albums: React.FC = () => {
   const getImages = () => {
     setLoading(true);
     axios
-      .get("http://localhost:3000/api/image", { headers: { isgallery: true } })
+      .get("/api/image", { headers: { isgallery: true } })
       .then((images) => {
         setImages(images.data.images!);
       })
@@ -28,8 +28,9 @@ const Albums: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log(process.env.BASE_URL);
     axios
-      .get("http://localhost:3000/api/image", { headers: { isgallery: true } })
+      .get("/api/image", { headers: { isgallery: true } })
       .then((images) => {
         setImages(images.data.images!);
       })

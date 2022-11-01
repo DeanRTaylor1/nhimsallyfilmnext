@@ -100,6 +100,7 @@ export default async function handler(
         await connectMongo();
         console.log("CONNECTED TO MONGO");
         const albumName = req.headers.albumname;
+        console.log(albumName);
         const images = await Image.find({ albumName: albumName }).limit(9);
         // console.log(images);
 

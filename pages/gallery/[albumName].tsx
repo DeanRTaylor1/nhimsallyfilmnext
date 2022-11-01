@@ -6,7 +6,7 @@ import { GalleryProps } from "../../types/interfaces";
 import { useRouter } from "next/router";
 import { collection, getDocs, query, limit } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
-
+import axios from "axios";
 import Spinner from "../../Components/spinner/spinner";
 
 const IndividualGallery: React.FC<GalleryProps> = () => {
@@ -14,39 +14,17 @@ const IndividualGallery: React.FC<GalleryProps> = () => {
   const [images, setImages] = useState<any[]>([]);
   const router = useRouter();
   const { albumName } = router.query;
-  console.log(albumName);
-
-  const getGalleryImages = async (albumName: string) => {
-    try {
-      const images = collection(db, albumName);
-      const imageQuery = query(images, limit(9));
-      const imagesSnap = await getDocs(imageQuery);
-
-      let newArr: any[] = [];
-      if (!imagesSnap.empty) {
-        imagesSnap.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          let obj = { id: doc.id, ...doc.data() };
-          newArr.push(obj);
-        });
-        setImages(newArr);
-        setImageLoaded(true);
-        return;
-      } else {
-        setImageLoaded(false);
-        console.log("no such doc");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   useEffect(() => {
-    if (typeof albumName === "string") {
-      getGalleryImages(albumName);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [albumName]);
+    axios
+      .get("/api/image", { headers: { albumname: albumName } })
+      .then((images) => {
+        console.log(images);
+        setImages(images.data.images!);
+        setImageLoaded(true);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <Fragment>
@@ -58,11 +36,11 @@ const IndividualGallery: React.FC<GalleryProps> = () => {
               // add use dispatch on click for each image to update the galleryview
 
               <Image
-                key={item.id}
+                key={item._id}
                 className="hover:cursor-pointer"
-                data-imagename={item.imagename}
+                data-imagename={item.imageName}
                 alt="galleryimage"
-                src={item.imageurl}
+                src={item.imageUri}
                 width={800}
                 height={350}
               />

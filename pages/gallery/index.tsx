@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getGalleryImages } from "../../helpers/imageHelpers";
 import { GalleryProps } from "../../types/interfaces";
+import axios from "axios";
 
 const Galleries: React.FC<GalleryProps> = ({ galleryImages }) => {
   return (
@@ -12,12 +13,12 @@ const Galleries: React.FC<GalleryProps> = ({ galleryImages }) => {
         {galleryImages.map((item) => {
           return (
             // add use dispatch on click for each image to update the galleryview
-            <Link key={item.id} href={"/gallery/" + item.imagename}>
+            <Link key={item._id} href={"/gallery/" + item.albumName}>
               <Image
                 className="hover:cursor-pointer"
-                data-imagename={item.imagename}
+                data-imagename={item.albumName}
                 alt="galleryimage"
-                src={item.imageurl}
+                src={item.imageUri}
                 width={800}
                 height={350}
               />
@@ -30,11 +31,18 @@ const Galleries: React.FC<GalleryProps> = ({ galleryImages }) => {
 };
 
 const getStaticProps = async () => {
-  const galleryImages = await getGalleryImages();
+  const data = await axios.get(process.env.BASE_URL + "/api/image", {
+    headers: { isgallery: true },
+  });
+
+  const images = data.data.images!;
+  console.log(images);
+  const galleryImages = data.data.images!;
   return {
     props: {
       galleryImages,
     },
+    revalidate: 432000,
   };
 };
 

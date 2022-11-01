@@ -79,7 +79,7 @@ const CreateAlbum: React.FC = () => {
   const submitAlbum = async () => {
     for (let image of images) {
       try {
-        const res = await axios.post("http://localhost:3000/api/image", {
+        const res = await axios.post("/api/image", {
           imageName: image.imageName,
           imageUri: image.imageUri,
           albumName: image.albumName,
