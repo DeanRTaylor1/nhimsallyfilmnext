@@ -4,6 +4,7 @@ export interface IndexProps {
 }
 
 export interface image {
+  id?: string;
   _id: string;
   albumName: string;
   imageUri: string;
