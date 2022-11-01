@@ -60,7 +60,7 @@ const MainSwiper: React.FC<MainImageSwiperProps> = ({ homeImageArr }) => {
               <Image
                 className="swiperImage group-hover:opacity-70 hover:cursor-pointer"
                 alt="galleryimage"
-                src={item.imageurl}
+                src={item.imageurl!}
                 width={350}
                 height={800}
               />

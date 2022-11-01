@@ -54,7 +54,7 @@ const SwiperLarge: React.FC<LandscapeImageSwiperProps> = ({
                 <Image
                   className="swiperImage group-hover:opacity-70 hover:cursor-pointer"
                   alt="galleryimage"
-                  src={item.imageurl}
+                  src={item.imageurl!}
                   width={800}
                   height={350}
                 />
