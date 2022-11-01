@@ -49,3 +49,4 @@ const getStaticProps = async () => {
 export default Galleries;
 
 export { getStaticProps };
+//comment
