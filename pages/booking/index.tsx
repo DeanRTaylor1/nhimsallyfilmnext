@@ -40,7 +40,7 @@ const getStaticProps = async () => {
   const individualSwiper = JSON.stringify(individual);
   const coupleSwiper = JSON.stringify(couple);
   const weddingSwiper = JSON.stringify(wedding);
-  console.log(individualSwiper);
+  //console.log(individualSwiper);
 
   return {
     props: {

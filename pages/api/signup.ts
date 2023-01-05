@@ -15,7 +15,7 @@ export default async function handler(
     const email = req.body.email;
     const name = req.body.name;
     const password = req.body.password;
-    console.log(name, email, password);
+    //console.log(name, email, password);
 
     try {
       console.log("CONNECTING TO MONGO");

@@ -19,7 +19,7 @@ const IndividualGallery: React.FC<GalleryProps> = () => {
     axios
       .get("/api/image", { headers: { albumname: albumName } })
       .then((images) => {
-        console.log(images);
+        //console.log(images);
         setImages(images.data.images!);
         setImageLoaded(true);
       })
